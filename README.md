@@ -1,66 +1,97 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<!--- Movies API Website --->
 
-## About Laravel
+# Movies API Application 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+The TMDB (The Movie Database) Movie API website is an online platform that allows users to explore a vast collection of movies and TV shows. Leveraging the powerful TMDB API, the website provides detailed information about films, including synopses, cast and crew details, ratings, trailers, and more. Users can search for specific titles, browse by genre or popularity, and discover new movies and shows.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Usage 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Search and Discovery:
 
-## Learning Laravel
+- **Search by Title:** Users can search for movies and TV shows by entering a title in the search bar. The application fetches matching results from the TMDB API, providing quick access to details about each title.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Browse by Genre or Category:** Users can explore content by browsing through genres, popular movies, top-rated films, or upcoming releases, all sourced from the API.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Detailed Information:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Movie/TV Show Details:** For each title, the application displays comprehensive information, including the synopsis, release date, cast and crew, trailers, and ratings.
 
-## Laravel Sponsors
+- **Cast and Crew Profiles:** Users can click on a cast or crew member to view their full profile, which includes a list of movies or shows they've been involved with.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### User Interaction:
 
-### Premium Partners
+- **Ratings:** Users can see ratings for each title, helping them make informed viewing choices.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### Integration:
 
-## Contributing
+- **API Integration:** The website seamlessly integrates with the TMDB API to fetch real-time data, ensuring that users always have access to the latest movie and TV show information.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Viewing Movie Details
 
-## Code of Conduct
+- When a movie is selected from the search results, the application checks the movie table for detailed information. If the movie exists, it displays the details from the database. If the movie does not exist, it fetches the details from the API, displays them, and stores the record.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Logging
 
-## Security Vulnerabilities
+- The application logs significant events, including storing all movie and TV show data, job failures, and cron job activities. Logs can be found in `storage/logs/laravel.log`.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Initial Setup 
 
-## License
+## Requirements
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- PHP >= 8.1
+- Laravel >= 10
+- MySQL 
+
+## Application Setup Instructions
+
+1. **Clone Repository:**  
+    ```bash
+    git clone https://github.com/Sanjay-i/movie_api_website.git 
+    ```
+ 2. **Switch to the Repository Folder:**
+    ```bash
+    cd movies_website
+    ```
+
+ 3. **Copy the example env file and make the required configuration changes in the .env file:**
+    ```bash
+    cp .env.example .env
+    ```
+
+Create the Movie Database and Connect the Database Name in the .env File.
+
+# Install Dependencies:
+
+1. **Install Composer Dependencies:**
+    ```bash
+    composer install
+    ```
+2. **Run Migration Command to Create All Tables:**
+    ```bash  
+    php artisan migrate
+    ```
+3. **Start your build process Command:**
+    ```bash  
+    npm run dev
+    ```
+
+## Tmdb API Integration 
+
+The TMDB (The Movie Database) Movie API is a powerful and comprehensive web service that allows developers to access and interact with a vast collection of movie, TV show, and celebrity data.and searching 
+
+## movies and tv show details 
+
+When a user searches for a movie or TV show in our application, the system first checks the database for the selected title. If the data is found, it displays the saved information on the movies and TV shows page. If the data is not available in the database, the system fetches the information from the API and displays it on the page.
+
+
+
+## Queue Job
+
+- Laravel's queue system is used in this application in order to efficiently handle background processing tasks. When a movies or tv shows  detail is not found in the database, a queue job is automatically triggered to fetch the details from the tmdb movie API and store them in the database. As a result, the application is responsive to user actions while handling potentially time consuming functions in the background, thus ensuring that the application remains responsive to user actions.
+
+  ```bash
+    php artisan queue:work
+  ```
+- The logs/laravel.log file displays all log errors, allowing us to identify where the errors occur in the code. This is particularly advantageous when working with the queue concept.
+
